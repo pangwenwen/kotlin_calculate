@@ -34,9 +34,9 @@ fun main() {
     var list2 = listOf<Node>(node5,node6)
     node1.children = list1
     node3.children = list2
-    preorder2(node1)
+    preorder3(node1)
 }
-// 2. 非递归
+// 2. 非递归  -- (～￣(OO)￣)ブ 笨方法
 fun preorder2(root: Node?): List<Int> {
     var list = mutableListOf<Int>()
     if (root == null) return list
@@ -69,6 +69,28 @@ fun preorder2(root: Node?): List<Int> {
             break
         }
 
+    }
+    return list
+}
+
+// 3.
+fun preorder3(root: Node?): List<Int> {
+    var list = mutableListOf<Int>()
+    if (root == null) return list
+    var stack = ArrayDeque<Node>()
+
+    stack.add(root)
+    while (stack.isNotEmpty()){
+        val node = stack.removeLast()
+        list.add(node.`val`)
+
+        node.children?.let {
+            val size = it.size-1
+            var index = size
+            while (index >=0){
+                stack.add(it[index--])
+            }
+        }
     }
     return list
 }

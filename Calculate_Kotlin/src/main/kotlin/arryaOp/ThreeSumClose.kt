@@ -1,6 +1,7 @@
 package arryaOp
 
 import java.util.*
+import kotlin.math.abs
 
 
 fun main() {
@@ -24,13 +25,13 @@ fun threeSumClosest(nums: IntArray, target: Int): Int {
                 return target
             }
             if (subR > target) {
-                if (Math.abs(subR - target) < Math.abs(result - target)) {
+                if (abs(subR - target) < abs(result - target)) {
                     result = subR
                 }
                 subR = nums[i] + nums[temp2] + nums[--temp3]
                 continue
             } else {
-                if (Math.abs(subR - target) < Math.abs(result - target)) {
+                if (abs(subR - target) < abs(result - target)) {
                     result = subR
                 }
                 subR = nums[i] + nums[++temp2] + nums[temp3]
