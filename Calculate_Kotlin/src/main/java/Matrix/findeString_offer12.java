@@ -5,7 +5,6 @@ public class findeString_offer12 {
     public static void main(String[] args) {
         char[][] a= {{'b','a'}};
         exist(a,"ab");
-
     }
 
 
