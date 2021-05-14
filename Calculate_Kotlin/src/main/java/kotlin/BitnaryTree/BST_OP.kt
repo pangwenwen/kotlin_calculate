@@ -23,28 +23,6 @@ fun searchBST(root: TreeNode?, `val`: Int): TreeNode? {
 
 fun main() {
 
-//    var node4 = TreeNode(4)
-//    var node5 = TreeNode(5)
-//    var node6 = TreeNode(6)
-//    var node7 = TreeNode(7)
-//    var node8 = TreeNode(8)
-//    var node9 = TreeNode(9)
-//
-//    node4.right = node7
-//    node7.left = node6
-//    node7.right = node8
-//    node6.left = node5
-//    node8.right = node9
-//
-//    deleteNode(node4,7)
-
-//    node4.left = node2
-//    node2.left = node1
-//    node2.right = node3
-//    node4.right = node7
-//
-//    insertIntoBST(node4,5)
-
     var node1 = TreeNode(1)
     var node2 = TreeNode(2)
     var node3 = TreeNode(3)
@@ -52,7 +30,9 @@ fun main() {
     node3.left = node1
     node3.right = node4
     node1.right = node2
-    deleteNode(node3,1)
+//    deleteNode(node3,1)
+
+    print(findMin(node3).`val`)
 
 
 
@@ -166,6 +146,57 @@ fun deleteNode(root: TreeNode?, key: Int): TreeNode? {
     }
 
     return res
+}
+
+fun deleteNode2(root: TreeNode?, key: Int): TreeNode? {
+    if(root == null) return null
+    when {
+        key < root.`val` -> root.left = deleteNode2(root.left, key)
+        key > root.`val` -> root.right = deleteNode2(root.right,key)
+        else ->
+            /*
+            1. 左孩子为空，右孩子不为空
+            2. 左孩子不为空，右孩子为空
+            3. 左、右孩子都不为空
+            */
+            when {
+                root.left == null -> {
+                    val right = root.right
+                    root.right = null
+                    return right
+                }
+                root.right == null -> {
+                    val left = root.left
+                    root.left = null
+                    return left
+                }
+                else -> {
+                    var rightmin = findMin(root.right!!)
+                    rightmin.right = removeMinAndgetRoot(root.right!!)
+                    rightmin.left = root.left
+                    root.left = null
+                    root.right = null
+                    return rightmin
+                }
+            }
+    }
+    return root
+}
+
+fun removeMinAndgetRoot(node: TreeNode): TreeNode? {
+    if (node.left == null){
+        var right = node.right
+        node.right = null
+        return right
+    }
+    node.left = removeMinAndgetRoot(node.left!!)
+    return node
+}
+
+fun findMin(node: TreeNode): TreeNode {
+    if (node.left == null)
+        return node
+    return findMin(node.left!!)
 }
 
 

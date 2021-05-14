@@ -1,4 +1,4 @@
-package kotlin.BitnaryTree
+package BitnaryTree
 
 import BitnaryTree.TreeNode
 import java.util.HashMap
