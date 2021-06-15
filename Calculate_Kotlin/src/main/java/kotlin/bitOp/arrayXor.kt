@@ -1,4 +1,4 @@
-package kotlin.bitOp
+package bitOp
 
 fun xorOperation(n: Int, start: Int): Int {
     return 2 * getXor(start/2,start/2+n-1)+(start and 1 and n)

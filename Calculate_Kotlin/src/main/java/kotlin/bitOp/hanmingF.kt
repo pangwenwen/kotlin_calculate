@@ -1,4 +1,4 @@
-package kotlin.bitOp
+package bitOp
 
 fun totalHammingDistance(nums: IntArray): Int {
     var res = 0
