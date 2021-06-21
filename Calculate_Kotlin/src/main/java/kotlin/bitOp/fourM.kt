@@ -10,3 +10,31 @@ fun singleNumber(nums: IntArray): Int {
     }
     return res
 }
+
+// https://leetcode-cn.com/problems/find-the-difference/
+fun findTheDifference(s: String, t: String): Char {
+    var c = 0
+    for (i in s){
+        c = c xor i.toInt()
+    }
+
+    for (i in t){
+        c = c xor i.toInt()
+    }
+    return c.toChar()
+}
+
+//https://leetcode-cn.com/problems/swap-numbers-lcci/solution/lu-ming-fei-de-zuo-ti-ri-ji-jia-jian-fa-v1wxf/
+fun swapNumbers1(numbers: IntArray): IntArray {
+    numbers[0]=numbers[0]+numbers[1]
+    numbers[1] = numbers[0] - numbers[1]
+    numbers[0] = numbers[0] - numbers[1]
+    return numbers
+}
+
+fun swapNumbers2(numbers: IntArray): IntArray {
+    numbers[0]=numbers[0] xor numbers[1]
+    numbers[1] = numbers[0] xor numbers[1]
+    numbers[0] = numbers[0] xor numbers[1]
+    return numbers
+}
