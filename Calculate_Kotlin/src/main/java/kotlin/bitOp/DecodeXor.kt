@@ -1,4 +1,4 @@
-package kotlin.bitOp
+package bitOp
 //https://leetcode-cn.com/problems/decode-xored-array/
 fun decode(encoded: IntArray, first: Int): IntArray {
     val size = encoded.size

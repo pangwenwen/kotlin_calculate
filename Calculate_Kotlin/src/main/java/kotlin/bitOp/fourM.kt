@@ -56,5 +56,89 @@ private fun isP(count: Int): Boolean {
 }
 
 
+// https://leetcode-cn.com/problems/integer-replacement/
+fun integerReplacement(n: Int): Int {
+    var count = 0
+    return recursion(n,count)
+}
+
+fun recursion(n: Int, count: Int): Int {
+    if (n <= 1){
+        return count
+    }
+    return if (n % 2 == 0){
+        recursion(n/2,count+1)
+    }else{
+        Math.min(recursion(n+1,count+1), recursion(n-1,count+1))
+    }
+}
+
+// https://leetcode-cn.com/problems/add-binary/
+fun addBinary(a: String?, b: String?): String? {
+    if ((a == null) and (b == null)) {
+        return null
+    }
+
+    val aChar = a!!.toCharArray()
+    val bChar = b!!.toCharArray()
+    val al = aChar.size
+    val bl = bChar.size
+    val macL = Math.max(al, bl)
+
+    val resultStr = StringBuilder()
+
+    var temp = '0'
+    var aI: Char
+    var bI: Char
+    for (i in 1..macL) {
+        if (i <= al) {
+            aI = aChar[al - i]
+        } else {
+            aI = '0'
+        }
+
+        if (i <= bl) {
+            bI = bChar[bl - i]
+        } else {
+            bI = '0'
+        }
+
+        if (aI == '1' && bI == '1') {
+            if (temp == '1') {
+                resultStr.append("1")
+            } else {
+                resultStr.append("0")
+            }
+            temp = '1'
+            continue
+        } else if (aI == '0' && bI == '0') {
+            if (temp == '1') {
+                resultStr.append("1")
+            } else {
+                resultStr.append("0")
+            }
+            temp = '0'
+            continue
+        } else {
+            if (temp == '1') {
+                temp = '1'
+                resultStr.append("0")
+            } else {
+                resultStr.append("1")
+                temp = '0'
+            }
+            continue
+        }
+    }
+    if (temp == '1') {
+        resultStr.append(temp)
+    }
+    return resultStr.reverse().toString()
+}
+
+fun main() {
+    addBinary("1010","1011")
+}
+
 
 

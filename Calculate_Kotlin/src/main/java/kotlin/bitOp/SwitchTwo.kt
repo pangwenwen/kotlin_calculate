@@ -1,4 +1,4 @@
-package kotlin.bitOp
+package bitOp
 
 fun exchangeBits(num: Int): Int {
     var a = num and 0x55555555
