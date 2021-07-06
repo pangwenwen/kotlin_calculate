@@ -1,4 +1,4 @@
-package kotlin.trie
+package trie
 
 import javax.xml.stream.events.Characters
 
@@ -43,7 +43,5 @@ class Trie(){
             cur = cur.next.get(i)!!
         }
         return true
-
     }
-
 }

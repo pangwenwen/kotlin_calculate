@@ -1,4 +1,4 @@
-package kotlin.mapsum
+package mapsum
 
 // https://leetcode-cn.com/problems/map-sum-pairs/
 

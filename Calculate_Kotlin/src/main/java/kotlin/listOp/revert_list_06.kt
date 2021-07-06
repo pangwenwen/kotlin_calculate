@@ -1,5 +1,7 @@
 package listOp
 
+import java.util.*
+
 // https://leetcode-cn.com/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/
 
 fun main() {
@@ -32,4 +34,22 @@ fun op(node:ListNode?){
     count++
     op(node.next)
     array[p++] = node.`val`
+}
+
+// 使用栈
+fun reversePrint2(head: ListNode?): IntArray {
+    if(head == null) return IntArray(0)
+    var stack = ArrayDeque<Int>()
+    var cur = head
+    while (cur != null){
+        stack.push(cur.`val`)
+        cur = cur.next
+    }
+
+    var array = IntArray(stack.size)
+    for (i in 0 until stack.size){
+        array[i] = stack.pop()
+    }
+    return array
+
 }

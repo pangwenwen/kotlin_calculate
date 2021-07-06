@@ -1,7 +1,5 @@
 package BitnaryTree
 
-import kotlin.math.abs
-
 // https://leetcode-cn.com/problems/er-cha-shu-zhong-he-wei-mou-yi-zhi-de-lu-jing-lcof/
 
 fun main() {
@@ -25,13 +23,13 @@ fun main() {
     node3.right = node6
     node6.left = node9
     node6.right = node10
-//    pathSum(node1,22)
+    pathSum(node1,22)
 
 
-    var node11 = TreeNode(-2)
-    var node12 = TreeNode(-3)
-    node11.right = node12
-    pathSum(node11,-5)
+//    var node11 = TreeNode(-2)
+//    var node12 = TreeNode(-3)
+//    node11.right = node12
+//    pathSum(node11,-5)
 
 
 }

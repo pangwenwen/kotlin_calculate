@@ -1,4 +1,4 @@
-package kotlin.arryaOp
+package arryaOp
 
 //https://leetcode-cn.com/problems/find-majority-element-lcci/
 // 摩尔投票法

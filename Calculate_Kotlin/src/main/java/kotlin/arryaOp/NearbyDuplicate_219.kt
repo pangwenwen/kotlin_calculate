@@ -1,4 +1,4 @@
-package kotlin.arryaOp
+package arryaOp
 
 fun containsNearbyDuplicate(nums: IntArray, k: Int): Boolean {
     if (nums == null || nums.isEmpty() || k <=0) return false
@@ -14,6 +14,19 @@ fun containsNearbyDuplicate(nums: IntArray, k: Int): Boolean {
         map[nums[i]] = i
 
     }
-
     return false
+}
+
+
+fun findRepeatNumber(nums: IntArray): Int {
+    var set = mutableSetOf<Int>()
+    var res = -1
+    for (i in nums){
+        if (set.contains(i)){
+            res = i
+            break
+        }
+        set.add(i)
+    }
+    return res
 }

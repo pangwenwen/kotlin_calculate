@@ -3,8 +3,11 @@ package arryaOp
 //https://leetcode-cn.com/problems/shu-zu-zhong-chu-xian-ci-shu-chao-guo-yi-ban-de-shu-zi-lcof/
 
 fun main() {
-    var array = intArrayOf(1)
-    print(majorityElement2(array))
+    var array = intArrayOf(3,5,7,2,1,6)
+    quick_sort(array,array.size-1,0)
+    for (i in array){
+        print(i)
+    }
 }
 
 // 快排，然后遍历
@@ -38,6 +41,7 @@ fun quick_sort(nums: IntArray,hight:Int,low:Int){
     var q = low
 
     while (p != q){
+
         while (p>q && nums[p] >= temp) p--;
         if (p>q){
             nums[q] = nums[p]

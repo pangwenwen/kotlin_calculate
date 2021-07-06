@@ -1,4 +1,4 @@
-package kotlin.arryaOp
+package arryaOp
 
 fun containsDuplicate(nums: IntArray): Boolean {
     if(nums == null || nums.size < 2) return false

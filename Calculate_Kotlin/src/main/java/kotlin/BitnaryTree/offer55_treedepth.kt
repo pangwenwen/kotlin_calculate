@@ -1,5 +1,6 @@
 package BitnaryTree
 
+import java.util.*
 import kotlin.math.max
 
 fun main() {
@@ -60,4 +61,58 @@ fun maxDepth(root: TreeNode?): Int {
         }
     }
     return tempDepth
+}
+
+// 2. 非递归层序遍历
+fun maxDepthC(root: TreeNode?): Int {
+    if (root == null) return 0
+    var list = ArrayDeque<TreeNode>()
+    list.add(root)
+    var heigh = 0
+    while (list.isNotEmpty()){
+        val size = list.size
+        for(i in 0 until size){
+            val node = list.removeFirst()
+            if (node.left != null) list.add(node.left)
+            if (node.right != null) list.add(node.right)
+        }
+        heigh++
+    }
+    return heigh
+}
+
+// 3. 使用回溯法
+var heigh = 0
+var maxheigh = 0
+fun maxDepthD(root: TreeNode?): Int {
+    solDepth(root)
+    return maxheigh
+}
+fun solDepth(node:TreeNode?){
+    if (node == null ) return
+    heigh++
+    if (node.left == null && node.right == null)
+        maxheigh = Math.max(heigh, maxheigh)
+
+    solDepth(node.left)
+    solDepth(node.right)
+    heigh--
+}
+
+// 4. 使用arraydequeue + Pair
+fun maxDepthE(root: TreeNode?): Int {
+    if (root == null ) return 0
+    var list = ArrayDeque<Pair<TreeNode,Int>>()
+    list.add(Pair(root,1))
+
+    var maxH = 0
+    while (list.isNotEmpty()){
+        val p = list.removeFirst()
+        val node = p.first
+        val h = p.second
+        maxH = Math.max(maxH,h)
+        if (node.left != null) list.add(Pair(node.left!!,h+1))
+        if (node.right != null) list.add(Pair(node.right!!,h+1))
+    }
+    return maxH
 }

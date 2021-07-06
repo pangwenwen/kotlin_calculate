@@ -1,4 +1,4 @@
-package kotlin.heap
+package heap
 
 import java.util.*
 

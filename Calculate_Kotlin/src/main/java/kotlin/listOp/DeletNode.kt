@@ -9,7 +9,6 @@ fun main() {
     listNode1.next = listNode2
     listNode2.next = listNode3
     deleteNode(listNode1,3)
-
 }
 
 fun deleteNode(head: ListNode?, `val`: Int): ListNode? {
