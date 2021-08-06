@@ -1,4 +1,4 @@
-package kotlin.dp
+package dp
 
 fun tribonacci(n: Int): Int {
     if (n<2) return n

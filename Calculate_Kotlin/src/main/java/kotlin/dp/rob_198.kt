@@ -1,4 +1,4 @@
-package kotlin.dp
+package dp
 
 fun rob(nums: IntArray): Int {
     if(nums.size == 1) return nums[0]
@@ -19,5 +19,4 @@ fun rob(nums: IntArray): Int {
 
     return if (dp[size-2]> dp[size-1]) dp[size-2]
     else dp[size-1]
-
 }
