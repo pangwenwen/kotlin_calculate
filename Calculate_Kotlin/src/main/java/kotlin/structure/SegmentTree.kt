@@ -67,5 +67,4 @@ class SegmentTree(nums:IntArray){
     private fun getRight(index:Int):Int{
         return 2 * index + 2
     }
-
 }
