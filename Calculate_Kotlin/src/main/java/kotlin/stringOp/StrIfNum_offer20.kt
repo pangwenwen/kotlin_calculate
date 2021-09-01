@@ -7,48 +7,27 @@ fun main() {
 }
 
 fun isNumber(s: String): Boolean {
-    if (s== null || s.trim().isBlank()) return false
-    val charA = s.trim().toCharArray()
-    if(isPoint(charA[0])) return false
-    var pre: Char? = null
-
-    for (c in charA){
-        val isN = isNum(c)
-        val isE = isE(c)
-        val isP = isPoint(c)
-        val isO = isOperate(c)
-
-        if (!isN && !isE && !isP && !isO) return false // 如果不在四类范围中直接返回false
-
-        if (isE){
-            if (!isNum(pre)) return false
-        }else if (isP){
-            if (!(pre == null || isNum(pre))) return false
-        }else if (isO){
-            if (pre != null ) return false
+    var ts = s.trim()
+    if (ts.isEmpty()) return false
+    ts = ts.replace('E','e')
+    var seeNum = false
+    var seeDot = false
+    var seeE = false
+    for (i in ts.indices){
+        if (ts[i] in '0'..'9')
+            seeNum = true
+        else if(ts[i] == '.'){
+            if (seeDot || seeE) return false
+            seeDot = true
+        }else if (ts[i] == 'e'){
+            if (!seeNum || seeE)return false
+            seeE = true
+            seeNum = false
+        }else if (ts[i] == '+' || ts[i] == '-'){
+            if (i != 0 && ts[i-1] != 'e') return false
+        }else{
+            return false
         }
-        pre = c
     }
-    if (isE(pre) || isOperate(pre)) return false
-    return true
+    return seeNum
 }
-
-fun isNum(c:Char?): Boolean {
-    if (c != null) {
-        return c.toInt() in 48..57
-    }
-    return false
-}
-
-fun isE(c:Char?):Boolean{
-    return c=='e' || c == 'E'
-}
-
-fun isPoint(c:Char?):Boolean{
-    return c == '.'
-}
-
-fun isOperate(c:Char?):Boolean{
-    return c == '-'|| c == '+'
-}
-

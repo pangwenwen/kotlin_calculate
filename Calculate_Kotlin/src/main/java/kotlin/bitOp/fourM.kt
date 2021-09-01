@@ -59,14 +59,14 @@ private fun isP(count: Int): Boolean {
 // https://leetcode-cn.com/problems/integer-replacement/
 fun integerReplacement(n: Int): Int {
     var count = 0
-    return recursion(n,count)
+    return recursion(n.toLong(),count)
 }
 
-fun recursion(n: Int, count: Int): Int {
+fun recursion(n: Long, count: Int): Int {
     if (n <= 1){
         return count
     }
-    return if (n % 2 == 0){
+    return if ((n % 2).toInt() == 0){
         recursion(n/2,count+1)
     }else{
         Math.min(recursion(n+1,count+1), recursion(n-1,count+1))

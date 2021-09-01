@@ -1,4 +1,4 @@
-package kotlin.dp
+package dp
 
 // https://leetcode-cn.com/problems/unique-paths/
 fun uniquePaths(m: Int, n: Int): Int {

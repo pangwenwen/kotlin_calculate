@@ -1,5 +1,7 @@
 package BitnaryTree
 
+import java.util.*
+
 // 二叉搜索树
 // https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
 fun lowestCommonAncestor(root: TreeNode?, p: TreeNode?, q: TreeNode?): TreeNode? {
@@ -59,4 +61,26 @@ fun findAncestor(root: TreeNode?, p: TreeNode, q: TreeNode):Boolean{
         ancestor = root
     return leT || riT || root.`val` === p.`val` || root.`val` === q.`val`
 }
+
+
+lateinit var ancest:TreeNode
+var seeP = false
+var seeQ = false
+//fun lowestCommonAncestor22(root: TreeNode?, p: TreeNode?, q: TreeNode?): TreeNode? {
+//    if(root == null || (root.left == null &&root.right == null)) return null
+//    if (p == null || q == null) return null
+//
+//    nextP(root,)
+//    return ancestor
+//}
+//fun nextP(root: TreeNode?, p: TreeNode, q: TreeNode){
+//    if (root == null) return
+//    nextP(root.left,p,q)
+//    nextP(root.right,p,q)
+//    if (root == )
+//
+//}
+
+
+
 

@@ -1,4 +1,4 @@
-package kotlin.arryaOp
+package arryaOp
 
 fun pivotIndex(nums: IntArray): Int {
     val size = nums.size

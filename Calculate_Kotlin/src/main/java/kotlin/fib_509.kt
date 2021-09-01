@@ -41,5 +41,21 @@ fun fib3(n:Int):Int{
 
 
 fun main() {
-    fib2(3)
+    fibf(3)
+}
+
+
+fun fibf(n: Int): Int {
+    if(n <= 1) return n
+    var memo = IntArray(n+1)
+    memo.fill(-1,0,n+1)
+    memo[0] = 0
+    memo[1] = 1
+    return bib(memo,n)
+}
+
+private fun bib(memo:IntArray,i:Int):Int{
+    if(memo[i] != -1) return memo[i]
+    memo[i] = bib(memo,i-1)+bib(memo,i-2)
+    return memo[i]
 }

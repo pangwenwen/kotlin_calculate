@@ -1,4 +1,4 @@
-package kotlin.structure
+package structure
 
 internal class TreeNode {
     var `val`: Int = 0
